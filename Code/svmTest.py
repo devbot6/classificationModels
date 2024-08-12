@@ -50,7 +50,6 @@ print(classification_report(train_predictions, labels))
 # Define a new data point, that we will predict a label for
 new_point = np.array([[3, 3]])
 
-# Add our new point to figure, in red, and redraw the figure
 fig.gca().plot(new_point[0][0], new_point[0][1], '.r', ms=12);
 fig
 
@@ -58,25 +57,20 @@ fig
 prediction = classifier.predict(new_point)
 print('Predicted class of new data point is: {}'.format(prediction[0]))
 
-# Add the support vectors to plot, and redraw the figure
-#  Support vectors will be indicated by being highlighted with black circles
 for row in classifier.support_vectors_:
     fig.gca().plot(row[0], row[1], 'ok', ms=14,  mfc='none')
 fig
 
-# Grab the current plot, and find axis sizes
 ax = fig.gca()
 xlim = ax.get_xlim()
 ylim = ax.get_ylim()
 
-# Create a grid of data to evaluate model
 xx = np.linspace(xlim[0], xlim[1], 30)
 yy = np.linspace(ylim[0], ylim[1], 30)
 YY, XX = np.meshgrid(yy, xx)
 xy = np.vstack([XX.ravel(), YY.ravel()]).T
 Z = classifier.decision_function(xy).reshape(XX.shape)
 
-# Plot the decision boundary and margins
 ax.contour(XX, YY, Z, colors='k', levels=[-1, 0, 1], alpha=0.5,
            linestyles=['--', '-', '--']);
 
