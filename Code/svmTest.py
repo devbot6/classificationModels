@@ -22,10 +22,8 @@ data[0:n_data_1, 1] = np.abs(np.random.randn(n_data_1))
 data[n_data_2:, 0] = np.abs(np.random.randn(n_data_1)) + 2
 data[n_data_2:, 1] = np.abs(np.random.randn(n_data_1)) + 2
 
-# Create the labels vector
 labels = np.array([0] * n_data_1 + [1] * n_data_2)
 
-# Plot out labelled data
 fig = plt.figure(figsize=[9, 7])
 plt.plot(data[0:n_data_1, 0], data[0:n_data_1, 1],
          'b.', ms=12, label="Label=0")
@@ -33,10 +31,8 @@ plt.plot(data[n_data_2:, 0], data[n_data_2:, 1],
          'g.', ms=12, label="Label=1")
 plt.legend(fontsize=15)
 
-# Initialize an SVM classifer object
 classifier = SVC(kernel='linear')
 
-# Fit our classification model to our training data
 classifier.fit(data, labels)
 
 SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
@@ -44,10 +40,8 @@ SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
     kernel='linear', max_iter=-1, probability=False, random_state=None,
     shrinking=True, tol=0.001, verbose=False)
 
-# Calculate predictions of the model on the training data
 train_predictions = classifier.predict(data)
 
-# Print out the performance metrics on the 
 print(classification_report(train_predictions, labels))
 
 # ////////////////////////////////////////////////////////////////////////////////////////////

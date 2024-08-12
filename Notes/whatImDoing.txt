@@ -1,0 +1,5 @@
+SVM:First thought of using an suipport vector machine toi classify the radar signals, wrote up a program to display this 
+and realized that svm are usually used for only 2 categories of classifcation and the number of categories needed to be more
+flexible and not fixed at to so I decided to opt for a decisionTree model
+
+decisionTree: 

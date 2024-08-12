@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import classification_report
+from sklearn.metrics import accuracy_score
 
 # Setting for generating some random data
 n_points = 75             
@@ -45,7 +46,7 @@ train_predictions = classifier.predict(data)
 
 print(classification_report(train_predictions, labels))
 
-print()
+print(accuracy_score())
 
 new_point = np.array([[6, 0 ]])
 
